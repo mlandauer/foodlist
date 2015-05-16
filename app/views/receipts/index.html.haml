@@ -5,7 +5,11 @@
 
   - @receipts.each do |receipt|
     %div.panel.panel-default
-      %div.panel-heading= receipt.date.to_s(:long)
+      %div.panel-heading
+        = time_ago_in_words(receipt.date)
+        ago
+        (#{receipt.date.to_s(:long)})
+
       %div.panel-body
         %table.table
           %thead
