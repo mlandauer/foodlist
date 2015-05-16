@@ -24,10 +24,9 @@
                 %td= line_item.product.stock_code
                 %td= line_item.product.description
                 %td= line_item.quantity
-                %td
-                  = "$" + "%.2f" % line_item.total_inc_gst
+                %td= number_to_currency(line_item.total_inc_gst)
             %tr
               %td
               %td
               %td
-              %td= "$" + "%.2f" % receipt.total_inc_gst
+              %td= number_to_currency(receipt.total_inc_gst)
