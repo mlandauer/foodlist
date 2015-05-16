@@ -14,18 +14,18 @@
 ActiveRecord::Schema.define(version: 20150516043427) do
 
   create_table "line_items", force: :cascade do |t|
-    t.integer  "transaction_id"
+    t.integer  "receipt_id"
     t.integer  "product_id"
     t.float    "quantity"
     t.float    "total_ex_gst"
     t.float    "total_inc_gst"
     t.integer  "line_no"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "line_items", ["product_id"], name: "index_line_items_on_product_id"
-  add_index "line_items", ["transaction_id"], name: "index_line_items_on_transaction_id"
+  add_index "line_items", ["receipt_id"], name: "index_line_items_on_receipt_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "stock_code"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150516043427) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "receipts", force: :cascade do |t|
     t.string   "code"
     t.date     "date"
     t.datetime "created_at", null: false
