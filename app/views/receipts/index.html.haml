@@ -1,0 +1,25 @@
+%h1 Receipts
+
+= paginate @receipts
+
+%ul.list-group
+  - @receipts.each do |receipt|
+    %li.list-group-item
+      %p= receipt.date
+
+      %table.table
+        %thead
+          %tr
+            %th Stock Code
+            %th Desc
+            %th Qty
+            %th Total (ex gst)
+            %th Total (inc gst)
+        %tbody
+          - receipt.line_items.each do |line_item|
+            %tr
+              %td= line_item.product.stock_code
+              %td= line_item.product.description
+              %td= line_item.quantity
+              %td= line_item.total_ex_gst
+              %td= line_item.total_inc_gst
