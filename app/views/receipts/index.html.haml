@@ -5,7 +5,7 @@
 %ul.list-group
   - @receipts.each do |receipt|
     %li.list-group-item
-      %p= receipt.date
+      %p= receipt.date.to_s(:long)
 
       %table.table
         %thead
@@ -20,4 +20,5 @@
               %td= line_item.product.stock_code
               %td= line_item.product.description
               %td= line_item.quantity
-              %td= line_item.total_inc_gst
+              %td
+                = "$" + "%.2f" % line_item.total_inc_gst
