@@ -1,5 +1,7 @@
 %h1 Line items
 
+= paginate @line_items
+
 %table.table
   %thead
     %tr
@@ -11,7 +13,7 @@
       %th Total (ex gst)
       %th Total (inc gst)
   %tbody
-    - LineItem.all.each do |line_item|
+    - @line_items.each do |line_item|
       %tr
         %td= line_item.receipt.code
         %td= line_item.receipt.date
