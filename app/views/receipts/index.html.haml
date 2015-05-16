@@ -1,24 +1,24 @@
-%h1 Receipts
+.container
+  %h1 Receipts
 
-= paginate @receipts
+  = paginate @receipts
 
-%ul.list-group
   - @receipts.each do |receipt|
-    %li.list-group-item
-      %p= receipt.date.to_s(:long)
-
-      %table.table
-        %thead
-          %tr
-            %th Stock Code
-            %th Desc
-            %th Qty
-            %th Total (inc gst)
-        %tbody
-          - receipt.line_items.each do |line_item|
+    %div.panel.panel-default
+      %div.panel-heading= receipt.date.to_s(:long)
+      %div.panel-body
+        %table.table
+          %thead
             %tr
-              %td= line_item.product.stock_code
-              %td= line_item.product.description
-              %td= line_item.quantity
-              %td
-                = "$" + "%.2f" % line_item.total_inc_gst
+              %th Stock Code
+              %th Desc
+              %th Qty
+              %th Total (inc gst)
+          %tbody
+            - receipt.line_items.each do |line_item|
+              %tr
+                %td= line_item.product.stock_code
+                %td= line_item.product.description
+                %td= line_item.quantity
+                %td
+                  = "$" + "%.2f" % line_item.total_inc_gst
