@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150516043427) do
     t.float    "quantity"
     t.float    "total_ex_gst"
     t.float    "total_inc_gst"
+    t.integer  "line_no"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

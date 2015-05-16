@@ -6,6 +6,7 @@ class CreateLineItems < ActiveRecord::Migration
       t.float :quantity
       t.float :total_ex_gst
       t.float :total_inc_gst
+      t.integer :line_no
 
       t.timestamps null: false
     end
