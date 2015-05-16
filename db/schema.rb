@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150516043427) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string   "name"
+    t.string   "code"
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
