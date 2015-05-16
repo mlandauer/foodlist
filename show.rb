@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require "csv"
 require_relative "lib/csv_reader"
 
 def display_line(array)

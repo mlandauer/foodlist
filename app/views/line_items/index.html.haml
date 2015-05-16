@@ -1,0 +1,22 @@
+%h1 Line items
+
+%table
+  %thead
+    %tr
+      %th Transaction
+      %th Date
+      %th Stock Code
+      %th Desc
+      %th Qty
+      %th Total (ex gst)
+      %th Total (inc gst)
+  %tbody
+    - LineItem.all.each do |line_item|
+      %tr
+        %td= line_item.receipt.code
+        %td= line_item.receipt.date
+        %td= line_item.product.stock_code
+        %td= line_item.product.description
+        %td= line_item.quantity
+        %td= line_item.total_ex_gst
+        %td= line_item.total_inc_gst

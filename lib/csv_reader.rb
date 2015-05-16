@@ -1,3 +1,5 @@
+require "csv"
+
 class CsvReader
   # Loads a csv and returns a hash for each line
   # Assumes the first line is the name of the column
