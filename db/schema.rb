@@ -43,9 +43,12 @@ ActiveRecord::Schema.define(version: 20150517022826) do
   create_table "receipts", force: :cascade do |t|
     t.string   "code"
     t.date     "date"
+    t.integer  "account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "receipts", ["account_id"], name: "index_receipts_on_account_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
