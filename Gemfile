@@ -37,6 +37,7 @@ gem "haml-rails", "~> 0.9"
 gem "kaminari"
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'devise'
+gem 'devise-bootstrap-views'
 
 gem 'rails_12factor', group: :production
 
