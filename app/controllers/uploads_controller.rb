@@ -1,11 +1,19 @@
 class UploadsController < ApplicationController
-  # TODO This should only be accessible by admin users
   before_action :authenticate_user!
 
   def new
+    unless current_user.admin?
+      render text: "Unauthorized", status: :unauthorized
+      return
+    end
   end
 
   def create
+    # TODO Extract filter
+    unless current_user.admin?
+      render text: "Unauthorized", status: :unauthorized
+      return
+    end
     csv_file = params[:export]
     CsvReader.load_csv(csv_file.path) do |hash|
       p hash
