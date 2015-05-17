@@ -1,33 +1,32 @@
-.container
-  %h1 Receipts
+%h1 Receipts
 
-  = paginate @receipts
+= paginate @receipts
 
-  - @receipts.each do |receipt|
-    %div.panel.panel-default
-      %div.panel-heading
-        = time_ago_in_words(receipt.date)
-        ago
-        (#{receipt.date.to_s(:long)})
+- @receipts.each do |receipt|
+  %div.panel.panel-default
+    %div.panel-heading
+      = time_ago_in_words(receipt.date)
+      ago
+      (#{receipt.date.to_s(:long)})
 
-      %div.panel-body
-        %table.table
-          %thead
+    %div.panel-body
+      %table.table
+        %thead
+          %tr
+            %th Stock Code
+            %th Description
+            %th Quantity
+            %th Total
+        %tbody
+          - receipt.line_items.each do |line_item|
             %tr
-              %th Stock Code
-              %th Description
-              %th Quantity
-              %th Total
-          %tbody
-            - receipt.line_items.each do |line_item|
-              %tr
-                %td= line_item.product.stock_code
-                %td= line_item.product.description
-                %td= line_item.quantity
-                %td= number_to_currency(line_item.total_inc_gst)
-            %tr
-              %td
-              %td
-              %td
-              %td
-                %strong= number_to_currency(receipt.total_inc_gst)
+              %td= line_item.product.stock_code
+              %td= line_item.product.description
+              %td= line_item.quantity
+              %td= number_to_currency(line_item.total_inc_gst)
+          %tr
+            %td
+            %td
+            %td
+            %td
+              %strong= number_to_currency(receipt.total_inc_gst)
