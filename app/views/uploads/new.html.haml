@@ -1,0 +1,8 @@
+.container
+  %p
+    Do a csv export from the
+    #{link_to "esuite software", "http://www.esuite.com.au/"} and then upload the file here
+
+  = form_tag({action: "create"}, multipart: true) do
+    = file_field_tag 'export'
+    = submit_tag("Upload")
