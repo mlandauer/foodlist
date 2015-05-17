@@ -1,0 +1,12 @@
+%h1 Products
+
+%table.table
+  %thead
+    %tr
+      %th Stock Code
+      %th Description
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product.stock_code
+        %td= product.description

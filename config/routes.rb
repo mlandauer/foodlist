@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root 'receipts#index'
 
   resources :uploads, only: [:new, :create]
-
+  resources :products, only: :index
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
