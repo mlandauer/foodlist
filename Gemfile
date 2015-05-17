@@ -38,6 +38,8 @@ gem "kaminari"
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'devise'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   # Just use sqlite in development and test for the time being
   gem "sqlite3"
