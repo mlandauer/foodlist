@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   belongs_to :account
 
-  delegate :receipts, to: :account
+  delegate :receipts, to: :account, allow_nil: true
 end
