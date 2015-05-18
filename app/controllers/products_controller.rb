@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.order(:stock_code).all
+    @products = Product.where("stock_code != ''").order("CAST(stock_code AS int)").all
   end
 end
