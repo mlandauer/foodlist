@@ -34,6 +34,13 @@
           <% else %>
             <li><%= link_to "Products", products_path %></li>
           <% end %>
+          <% if current_user && current_user.admin? %>
+            <% if current_page?(new_upload_path) %>
+              <li class="active"><%= link_to "Upload", new_upload_path %></li>
+            <% else %>
+              <li><%= link_to "Upload", new_upload_path %></li>
+            <% end %>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
