@@ -1,0 +1,28 @@
+%h1
+  = @product.description
+  %small= @product.stock_code
+
+%p
+  When you bought this
+
+%table.table
+  %thead
+    %tr
+      %th Date
+      %th Quantity
+      %th Total
+  %tbody
+    - @product.line_items(current_user.account).order("receipts.date desc").each do |line_item|
+      %tr
+        %td
+          = time_ago_in_words(line_item.receipt.date)
+          ago
+          (#{line_item.receipt.date.to_s(:long)})
+        %td= line_item.quantity
+        %td= number_to_currency(line_item.total_inc_gst)
+    %tr
+      %td
+      %td
+        %strong= @product.line_items(current_user.account).sum(:quantity)
+      %td
+        %strong= number_to_currency(@product.total_inc_gst(current_user.account))

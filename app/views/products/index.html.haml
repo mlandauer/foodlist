@@ -9,4 +9,4 @@
     - @products.each do |product|
       %tr
         %td= product.stock_code
-        %td= product.description
+        %td= link_to product.description, product
