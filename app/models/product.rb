@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :stock_code
+  
   def line_items(account)
     LineItem.joins(:receipt).where(product: self, receipts: {account_id: account.id})
   end
