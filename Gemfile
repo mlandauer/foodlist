@@ -36,6 +36,7 @@ gem "kaminari"
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem "friendly_id"
 
 gem 'rails_12factor', group: :production
 
