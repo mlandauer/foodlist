@@ -21,7 +21,7 @@
           - receipt.line_items.each do |line_item|
             %tr
               %td= line_item.product.stock_code
-              %td= line_item.product.description
+              %td= link_to_unless line_item.product.stock_code.empty?, line_item.product.description, line_item.product
               %td= line_item.quantity
               %td= number_to_currency(line_item.total_inc_gst)
           %tr
