@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   resources :uploads, only: [:new, :create]
   resources :products, only: [:index, :show]
+  resources :receipts, only: [:index]
 
   get 'download' => 'download#index'
-  get 'download/data' => 'download#data'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
