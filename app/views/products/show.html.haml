@@ -1,9 +1,12 @@
-%h1
-  = @product.description
-  %small= @product.stock_code
+.page-header
+  %h1
+    = @product.description
+    %small= @product.stock_code
 
-%p
-  When you bought this
+  %p.lead
+    Every time you ever bought
+    = @product.description.downcase
+    at the Coop
 
 %table.table
   %thead
