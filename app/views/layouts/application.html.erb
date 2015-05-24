@@ -41,6 +41,11 @@
               <li><%= link_to "Upload", new_upload_path %></li>
             <% end %>
           <% end %>
+          <% if current_page?(download_path) %>
+            <li class="active"><%= link_to "Download", download_path %></li>
+          <% else %>
+            <li><%= link_to "Download", download_path %></li>
+          <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
