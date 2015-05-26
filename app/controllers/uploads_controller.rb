@@ -1,6 +1,4 @@
 class UploadsController < ApplicationController
-  before_action :authenticate_user!
-
   def new
     unless current_user.admin?
       render text: "Unauthorized", status: :unauthorized
