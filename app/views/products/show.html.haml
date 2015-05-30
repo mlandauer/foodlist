@@ -8,6 +8,10 @@
     = @product.description.downcase
     at the Coop
 
+  %p
+    You buy this roughly every
+    = rough_period_of_time_in_words(@product.average_time_between_purchases(current_user.account))
+
 %table.table
   %thead
     %tr
