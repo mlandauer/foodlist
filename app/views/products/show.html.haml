@@ -10,7 +10,7 @@
 
   %p
     You buy this roughly every
-    = rough_period_of_time_in_words(@product.average_time_between_purchases(current_user.account))
+    = rough_period_of_time_in_words(@product.average_time_between_purchases(current_account))
 
 %table.table
   %thead
@@ -20,7 +20,7 @@
       %th Price per unit
       %th Total
   %tbody
-    - @product.line_items_for_account(current_user.account).order("receipts.date desc").each do |line_item|
+    - @product.line_items_for_account(current_account).order("receipts.date desc").each do |line_item|
       %tr
         %td
           = time_ago_in_words(line_item.receipt.date)
@@ -32,7 +32,7 @@
     %tr
       %td
       %td
-        %strong= @product.line_items_for_account(current_user.account).sum(:quantity)
+        %strong= @product.line_items_for_account(current_account).sum(:quantity)
       %td
       %td
-        %strong= number_to_currency(@product.total_inc_gst(current_user.account))
+        %strong= number_to_currency(@product.total_inc_gst(current_account))

@@ -12,4 +12,8 @@ module ApplicationHelper
       pluralize(days, 'day')
     end
   end
+
+  def current_account
+    current_user.account
+  end
 end
