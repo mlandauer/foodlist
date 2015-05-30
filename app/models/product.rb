@@ -3,7 +3,8 @@ class Product < ActiveRecord::Base
   friendly_id :stock_code
 
   def line_items_for_account(account)
-    LineItem.joins(:receipt).where(product: self, receipts: {account_id: account.id})
+    LineItem.joins(:receipt).where(product: self,
+                                   receipts: { account_id: account.id })
   end
 
   def total_inc_gst(account)
