@@ -1,10 +1,10 @@
 class Product < ActiveRecord::Base
   extend FriendlyId
   friendly_id :stock_code
+  has_many :line_items
 
   def line_items_for_account(account)
-    LineItem.joins(:receipt).where(product: self,
-                                   receipts: { account_id: account.id })
+    line_items.joins(:receipt).where(receipts: { account_id: account.id })
   end
 
   def total_inc_gst(account)
