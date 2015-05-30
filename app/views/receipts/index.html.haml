@@ -15,19 +15,16 @@
       %table.table
         %thead
           %tr
-            %th Stock Code
-            %th Description
             %th Quantity
+            %th Description
             %th Total
         %tbody
           - receipt.line_items.each do |line_item|
             %tr
-              %td= line_item.product.stock_code
-              %td= link_to_unless line_item.product.stock_code.empty?, line_item.product.description, line_item.product
               %td= line_item.quantity
+              %td= link_to_unless line_item.product.stock_code.empty?, line_item.product.description, line_item.product
               %td= number_to_currency(line_item.total_inc_gst)
           %tr
-            %td
             %td
             %td
             %td
