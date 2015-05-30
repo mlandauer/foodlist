@@ -17,6 +17,7 @@
     %tr
       %th Date
       %th Quantity
+      %th Price per unit
       %th Total
   %tbody
     - @product.line_items(current_user.account).order("receipts.date desc").each do |line_item|
@@ -26,6 +27,7 @@
           ago
           (#{line_item.receipt.date.to_s(:long)})
         %td= line_item.quantity
+        %td= number_to_currency(line_item.total_inc_gst / line_item.quantity)
         %td= number_to_currency(line_item.total_inc_gst)
     %tr
       %td
