@@ -10,9 +10,11 @@
       %th Stock Code
       %th Description
       %th You buy this roughly every
+      %th Average spend / month
   %tbody
     - @products.each do |product|
       %tr
         %td= product.stock_code
         %td= link_to product.description, product
         %td= rough_period_of_time_in_words(product.average_time_between_purchases(current_user.account))
+        %td= number_to_currency(product.total_inc_gst(current_user.account) / (current_user.account.receipts.maximum(:date) - current_user.account.receipts.minimum(:date)) * 28)
