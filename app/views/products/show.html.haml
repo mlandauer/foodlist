@@ -34,4 +34,5 @@
       %td
         %strong= @product.line_items(current_user.account).sum(:quantity)
       %td
+      %td
         %strong= number_to_currency(@product.total_inc_gst(current_user.account))
