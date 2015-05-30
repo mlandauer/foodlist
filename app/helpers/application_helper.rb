@@ -16,4 +16,11 @@ module ApplicationHelper
   def current_account
     current_user.account
   end
+
+  def nav_item(item, link)
+    active = current_page?(link)
+    item_html = h(item)
+    item_html += ' '.html_safe + content_tag(:span, '(current)'.html_safe, class: 'sr-only') if active
+    content_tag(:li, link_to(item_html, link), class: ('active' if active))
+  end
 end
