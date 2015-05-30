@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
   has_many :line_items
 
   def line_items_for_account(account)
-    line_items.joins(:receipt).where(receipts: { account_id: account.id })
+    line_items.for_account(account)
   end
 
   def total_inc_gst(account)
