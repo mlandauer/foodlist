@@ -13,5 +13,9 @@ ActiveAdmin.register Account do
 #   permitted
 # end
 
+index do
+  selectable_column
+  column :ref
+end
 
 end
