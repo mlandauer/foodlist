@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
+  def authenticate_active_admin_user!
+    authenticate_user!
+    unless current_user.admin?
+      render text: "Not authorised", status: :forbidden
+    end
+  end
+
   protected
 
   def current_account
